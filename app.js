@@ -20,7 +20,10 @@ app.use( express.static('public'))
 
 // ROUTES
 app.get('/', (req, res)=>{
-    res.render('home');
+    res.render('home', {
+        nombre: 'Alex',
+        titulo: 'Curso de Node'
+    });
 })
 
 app.get('/generic', (req, res)=>{
