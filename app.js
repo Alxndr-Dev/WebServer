@@ -5,6 +5,10 @@ const app = express()
 //PORT
 const port = 8080
 
+// Handlebars
+app.set('view engine', 'hbs');
+
+
 // Middleware
 // Content static serve
 
@@ -15,6 +19,9 @@ const port = 8080
 app.use( express.static('public'))
 
 // ROUTES
+app.get('/', (req, res)=>{
+    res.render('home');
+})
 
 app.get('/generic', (req, res)=>{
     res.sendFile( __dirname + '/public/generic.html')
