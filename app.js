@@ -1,13 +1,17 @@
 //Imports:
 const express = require('express')
-const app = express()
+const hbs = require('hbs');
 
+//App express
+const app = express()
 //PORT
 const port = 8080
 
+
+
 // Handlebars
 app.set('view engine', 'hbs');
-
+hbs.registerPartials( __dirname + '/views/partials' );
 
 // Middleware
 // Content static serve
@@ -27,11 +31,17 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/generic', (req, res)=>{
-    res.sendFile( __dirname + '/public/generic.html')
+    res.render('generic', {
+        nombre: 'Alex',
+        titulo: 'Curso de Node'
+    })
 })
 
 app.get('/elements', (req, res)=>{
-    res.sendFile( __dirname + '/public/elements.html')
+    res.render('elements', {
+        nombre: 'Alex',
+        titulo: 'Curso de Node'
+    })
 })
 
 // This route is for the 404 page
