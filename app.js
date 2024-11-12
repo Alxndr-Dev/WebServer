@@ -1,11 +1,12 @@
 //Imports:
 const express = require('express')
 const hbs = require('hbs');
+require('dotenv').config();
 
 //App express
 const app = express()
 //PORT
-const port = 8080
+const port = process.env.PORT;
 
 
 
@@ -46,7 +47,7 @@ app.get('/elements', (req, res)=>{
 
 // This route is for the 404 page
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public/404.html')
+    res.sendFile(__dirname + '/public/back/template/404.html')
 })
 
 // Server
